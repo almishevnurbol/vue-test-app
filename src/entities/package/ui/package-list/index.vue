@@ -23,6 +23,8 @@
                 <v-skeleton-loader type="card"></v-skeleton-loader>
             </v-col>
         </v-row>
+        <PackagePagination :pages="pages" /> 
+        <PackageDetailPopup :popupStatus="popupStatus" :name="popupItemName" :type="popupItemType" @closePopup="closePopup" />
     </v-container>
 </template>
 
@@ -30,6 +32,7 @@
 import { mapGetters, mapActions  } from 'vuex';
 
 export default {
+    name: 'PackageList',
     data() {
         return {
             filteredPackages: [],
@@ -43,7 +46,9 @@ export default {
         }
     },
     components: {
-        PackageCard: () => import('../package-card/index.vue')
+        PackageCard: () => import('../package-card/index.vue'),
+        PackagePagination: () => import('@/features/pagination/ui.vue'),
+        PackageDetailPopup: () => import('@/shared/ui/modal.vue')
     },
     methods: {
         ...mapActions(['fetchPackageList']),

@@ -1,4 +1,4 @@
-import API from "../../../shared/api"
+import API from "@/shared/api"
 
 
 const state = {

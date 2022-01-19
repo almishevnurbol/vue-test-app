@@ -34,3 +34,11 @@ body {
         min-height: 80vh;
     }
 }
+
+html, body, #root, .app, #app {
+    max-height: 80vh;
+}
+
+footer .text-center {
+    text-align: center;
+}
